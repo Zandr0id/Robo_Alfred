@@ -1,2 +1,2 @@
 # Robo_Alfred
-A simple python chatbot
+A simply python chatbot. Feel free to mess around with him.
