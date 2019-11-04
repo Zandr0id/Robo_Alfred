@@ -2,10 +2,7 @@ import socket
 import string
 from settings import PASS, NICK, HOST, CHANNEL
 
-
-
 def connect_to_twitch():
-
     s = socket.socket()
     s.connect((HOST,6667))
     s.send(f"PASS {PASS}\r\n".encode('utf-8'))
@@ -37,12 +34,30 @@ def send_to_chat(chat, message):
     chat.send(encoded_msg)
     print("Sent: " + message_string)
 
-def parse_username(line):
-    separate = line.split(":", 2)
-    username= separate[1].split("!",1)[0]
-    return username
+def parse(line):
+    try:
+        back = line.find('!')
+        username = line[1:back] #pull out the user who sent this message
 
-def parse_message(line):
-    separate = line.split(":", 2)
-    message = separate[2]
-    return message
+        separate = line.split(":", 2)
+        message = separate[2] # find the message content
+
+        individual_words = message.split(" ")
+        cmds = [] #token list of !cmds
+        mentions = [] #token list of @mentions
+        data = [] #token list of any other word
+        token_msg = [] #every token in one list
+
+        for word in individual_words:
+            if (word[0] == '!'): #pull out the first !cmd
+                cmds.append(word.replace('\r',''))
+            elif (word[0] == '@'): #pull out and @usernames
+                mentions.append(word.replace('\r',''))
+            else:
+                data.append(word.replace('\r','')) #anything else is considered data
+            token_msg.append(word.replace('\r',''))
+        return username, cmds, mentions, data, token_msg, message
+    except:
+        print("Could not parse messge.")
+        print(line)
+    return username, message
