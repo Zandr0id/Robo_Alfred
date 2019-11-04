@@ -58,11 +58,17 @@ try:
                             break;
                         #wave at people in the chat    
                         elif(cmd == '!wave'):
-                            waved_at = ' '
+                            waved_at = ''
                             if mentions:
-                                for mention in mentions:
-                                    waved_at += (mention + ' ')
-                                send_to_chat(chat,f"{user} waves at {waved_at}")
+                                waved_at += mentions[0]
+                                size = len(mentions)
+                                print(size)
+                                if size > 2:
+                                    for mention in mentions[1:(size-1)]:
+                                        waved_at += f", {mention}"
+                                if size > 1:
+                                    waved_at += f" and {mentions[(size-1)]}"
+                                send_to_chat(chat,f"{user} waved at {waved_at}")
                             else:
                                 send_to_chat(chat,f"{user}, you didn't wave at anyone...")
                             break;
@@ -97,6 +103,7 @@ try:
                             message = f"{user}, the stream has been up for {up_time}"
                             send_to_chat(chat,message)
                             break;
+                        #don't understand...
                         else:
                             print(f"unknown cmd: {cmd}")
                         
