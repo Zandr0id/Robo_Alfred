@@ -8,4 +8,5 @@ Current supported commands:
   - !uptime   -> The current uptime of the bot/stream
 
 Only the first command in a message will be responded to.
-Ex. "!uptime !github" will result in !uptime getting a response
+
+Example: "!uptime !github" will result in !uptime getting a response
