@@ -42,22 +42,20 @@ def parse(line):
         separate = line.split(":", 2)
         message = separate[2] # find the message content
 
-        individual_words = message.split(" ")
+        token_msg = message.split(" ")
         cmds = [] #token list of !cmds
         mentions = [] #token list of @mentions
         data = [] #token list of any other word
-        token_msg = [] #every token in one list
-
-        for word in individual_words:
+        for word in token_msg:
             if (word[0] == '!'): #pull out the first !cmd
                 cmds.append(word.replace('\r',''))
             elif (word[0] == '@'): #pull out and @usernames
                 mentions.append(word.replace('\r',''))
             else:
                 data.append(word.replace('\r','')) #anything else is considered data
-            token_msg.append(word.replace('\r',''))
         return username, cmds, mentions, data, token_msg, message
-    except:
+    except Exception as e:
         print("Could not parse messge.")
         print(line)
+        print(e)
     return username, message

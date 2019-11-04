@@ -35,7 +35,7 @@ while True:
 
                 #quick blurb about the project
                 elif(cmds[0]) == '!project':
-                    explanation = "TwilightOS is a scratch-built OS, mainly using C++. It is built stand alone (no linux or anything). Use !github for the link!"
+                    explanation = "TwilightOS is a scratch-built OS, mainly using C (but going to C++). It is built stand alone (no linux or anything). Use !github for the link!"
                     send_to_chat(chat,explanation)
 
                 #wave at people in the chat    

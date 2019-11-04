@@ -6,3 +6,6 @@ Current supported commands:
   - !wave <list of @usernames> -> Wave at the @usernames you specify
   - !commands     -> Takes you to this page
   - !uptime   -> The current uptime of the bot/stream
+
+Only the first command in a message will be responded to.
+Ex. "!uptime !github" will result in !uptime getting a response
