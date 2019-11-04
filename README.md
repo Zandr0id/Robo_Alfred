@@ -1,2 +1,8 @@
 # Robo_Alfred
-A simply python chatbot. Feel free to mess around with him.
+
+Current supported commands:
+  - !github   -> Shows the github link for the current project
+  - !project  -> A little blurb about the current project
+  - !wave <list of @usernames> -> Wave at the @usernames you specify
+  - !help     -> Takes you to this page
+  - !uptime   -> The current uptime of the bot/stream
