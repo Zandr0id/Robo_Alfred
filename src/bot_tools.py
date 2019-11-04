@@ -1,3 +1,10 @@
+"""
+These are the functions that perform the heavy lifting. 
+These should be moved into a single 'Bot' class of somekind.
+Written by Zane Youmans
+10/29/2019
+"""
+
 import socket
 import string
 from settings import PASS, NICK, HOST, CHANNEL
