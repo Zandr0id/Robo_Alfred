@@ -15,17 +15,26 @@ while True:
     temp = read_buffer.split("\n")
     read_buffer = temp.pop()
     for line in temp:
+
+        #twitch sends pings to make sure we're still there
+        #respond to them
         if "PING :tmi.twitch.tv" in line:
             chat.send((line.replace("PING","PONG").encode('utf-8')))
+            #the next message in chat always gets skipped...
+            #workaround: Send a chat message that never gets printed...
             send_to_chat(chat,"I'm awake!")
             print("reply to PING")
+
+        #any other text, we'll see if there's a command in it    
         else:
+            #blank data
             user = ""
             raw_msg = ""
             cmds = []
             mentions = []
             data = []
             token_msg = []
+
             user, cmds, mentions, data, token_msg, raw_msg = parse(line) #get all the data out
             
             #make sure there's at least one !command
@@ -57,9 +66,9 @@ while True:
 
                 #get uptime
                 elif(cmds[0] == '!uptime'):
-                    up_seconds = (time.time() - start_time)
-                    m, s = divmod(up_seconds, 60)
-                    h, m = divmod(m, 60)
+                    up_seconds = (time.time() - start_time)#time diff in seconds
+                    m, s = divmod(up_seconds, 60) #get min and sec
+                    h, m = divmod(m, 60) #get hours
                     up_time = f"{int(h)} hours, {int(m)} minutes and {int(s)} seconds"
                     message = f"{user}, the stream has been up for {up_time}"
                     send_to_chat(chat,message)
