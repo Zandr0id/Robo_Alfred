@@ -9,4 +9,4 @@ Current supported commands:
 
 Only the first command in a message will be responded to.
 
-Example: "!uptime !github" will result in !uptime getting a response
+Example: `!uptime !github` will result in `!uptime` getting a response
