@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 #test python twitch chat bot
 
 from bot_tools import connect_to_twitch, join_room, send_to_chat, parse
