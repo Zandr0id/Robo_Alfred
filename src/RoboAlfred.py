@@ -53,7 +53,7 @@ try:
                             break;
                         #quick blurb about the project
                         elif(cmd) == '!project':
-                            explanation = "TwilightOS is a scratch-built OS, mainly using C (but going to C++). It is built stand alone (no linux or anything). Use !github for the link!"
+                            explanation = "TwilightOS is a scratch-built OS, mainly using C++. It is built to be stand alone (no linux). In the future, it would be awesome to have stand-alnoe software to run on it as well. Use !github for the link!"
                             send_to_chat(chat,explanation)
                             break;
                         #wave at people in the chat    

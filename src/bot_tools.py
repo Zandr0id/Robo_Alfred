@@ -65,4 +65,3 @@ def parse(line):
         print("Could not parse messge.")
         print(line)
         print(e)
-    return username, message
